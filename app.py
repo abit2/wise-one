@@ -1,6 +1,7 @@
 from flask import Flask, jsonify,request,session
 from helpers import *
 import time
+import wikiquote, random                    #To remove
 
 app = Flask(__name__)
 
@@ -22,8 +23,9 @@ def get_quote_of_the_day():
 
 @app.route('/api/random_quote', methods=['GET'])
 def get_random_quote():
-    query = request.args.get('query',type=str)
-    return jsonify({'random_quote' : random_quote(query)})
+    # query = request.args.get('query',type=str)
+    # return jsonify({'random_quote' : random_quote(query)})
+    return jsonify({'random_quote' : random.choice(wikiquote.quotes(query))})
 
 
 if __name__ == '__main__':
