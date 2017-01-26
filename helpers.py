@@ -13,4 +13,12 @@ def random_quote(query):
 
 
 def quote_with_keyword(keyword, query):
-	return wikiquote.quotes_key(query, keyword)
+	results = wikiquote.quotes(query, max_quotes=150)
+	quotes_saturated = []
+	for result in results:
+		if keyword in result:
+			quotes_saturated.append(result)
+
+	if len(quotes_saturated)==0:
+		return "Sorry no quotes were found."
+	return quotes_saturated

@@ -16,7 +16,10 @@ def get_quotes():
     query = request.args.get('query', type=str)
     num_of_quotes = request.args.get('number_of_quotes', 3, type=int)
     language = request.args.get('lang', 'en', type=str)
-    return jsonify({'quotes': give_quotes(query, number_of_quotes=num_of_quotes, set_lang=language)})
+    try:
+        return jsonify({'quotes': give_quotes(query, number_of_quotes=num_of_quotes, set_lang=language)})
+    except Exception as e:
+        return jsonify({'error': e})    
 
 
 @app.route("/api/quote_of_the_day", methods=['GET'])
