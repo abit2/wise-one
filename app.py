@@ -17,7 +17,7 @@ def get_quotes():
 
 @app.route("/api/quote_of_the_day", methods=['GET'])
 def get_quote_of_the_day():
-    language = request.args.get('lang',type=str)
+    language = request.args.get('lang','en',type=str)
     return jsonify({'quote_of_the_day' : quote_of_day(set_lang=language)})
 
 @app.route('/api/random_quote', methods=['GET'])
