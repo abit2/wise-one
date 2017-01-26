@@ -1,6 +1,6 @@
 import wikiquote, random
 
-def give_quotes(query, number_of_quotes=3, set_lang='en'):
+def give_quotes(query='Dune', number_of_quotes=3, set_lang='en'):
 	return wikiquote.quotes(query, max_quotes=number_of_quotes, lang=set_lang)
 
 
