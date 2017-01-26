@@ -15,12 +15,12 @@ def get_quotes():
     language = requests.args.get('lang',type=str)
     return jsonify({'quotes': give_quote(query, number_of_quotes=num_of_quotes, set_lang=language)})
 
-@app.route("/api/request", methods=['GET'])
+@app.route("/api/quote_of_the_day", methods=['GET'])
 def get_quote_of_the_day():
     language = request.args.get('lang',type=str)
     return jsonify({'quote_of_the_day' : quote_of_day(set_lang=language)})
 
-@app.route('/api/kill', methods=['GET'])
+@app.route('/api/random_quote', methods=['GET'])
 def get_random_quote():
     query = request.args.get('query',type=str)
     return jsonify({'random_quote' : random_quote(query)})
