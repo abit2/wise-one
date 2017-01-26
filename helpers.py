@@ -10,3 +10,7 @@ def quote_of_day(set_lang='en'):
 
 def random_quote(query):
 	return random.choice(wikiquote.quotes(query))
+
+
+def quote_with_keyword(keyword, query):
+	return wikiquote.quotes_key(query, keyword)
