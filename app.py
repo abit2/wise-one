@@ -11,8 +11,8 @@ def index():
 @app.route('/api/get_quote', methods=['GET'])
 def get_quotes():
     query = request.args.get('query',type=str)
-    num_of_quotes = request.args.get('number_of_quotes',type=int)
-    language = requests.args.get('lang',type=str)
+    num_of_quotes = request.args.get('number_of_quotes',3,type=int)
+    language = requests.args.get('lang','en',type=str)
     return jsonify({'quotes': give_quote(query, number_of_quotes=num_of_quotes, set_lang=language)})
 
 @app.route("/api/quote_of_the_day", methods=['GET'])
