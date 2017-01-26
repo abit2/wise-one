@@ -25,7 +25,7 @@ def get_quote_of_the_day():
 def get_random_quote():
     # query = request.args.get('query',type=str)
     # return jsonify({'random_quote' : random_quote(query)})
-    return jsonify({'random_quote' : random.choice(wikiquote.quotes(query))})
+    return jsonify({'random_quote' : random.choice(wikiquote.quotes('Dune'))})
 
 
 if __name__ == '__main__':
